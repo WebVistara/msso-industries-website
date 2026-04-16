@@ -73,7 +73,7 @@ You can deploy this project easily using:
 
 ## 👤 Author
 
-Developed by **Prasanna Mehata**
+Developed by **Web Vistara**
 
 
 
