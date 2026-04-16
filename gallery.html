@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | MSSO Industries – Industrial Machinery & Workshop Showcase</title>
+    <meta name="description"
+        content="Explore our industrial gallery featuring state-of-the-art machinery, manufacturing units, installed equipment, and workshop operations.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a2342;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 8px solid #1e3a5f;
+            border-top: 8px solid #fdc303;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .preloader p {
+            margin-top: 25px;
+            color: #fdc303;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fdc303;
+        }
+
+        .active-nav {
+            color: #fdc303;
+            font-weight: 600;
+        }
+
+        .btn-gold {
+            background: #fdc303;
+            color: #0a2342;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: #e0ae02;
+            transform: scale(1.02);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 35, 66, 0.9), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
+
+        .lightbox.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .lightbox-close:hover {
+            color: #fdc303;
+        }
+
+        footer a,
+        .footer-link {
+            transition: color 0.2s;
+        }
+
+        footer a:hover,
+        .footer-link:hover {
+            color: #fdc303;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        * {
+            max-width: 100%;
+        }
+
+        /* Custom gold color utility */
+        .text-gold {
+            color: #fdc303;
+        }
+
+        .hover\:text-gold:hover {
+            color: #fdc303;
+        }
+
+        .bg-gold {
+            background-color: #fdc303;
+        }
+
+        .border-gold {
+            border-color: #fdc303;
+        }
+    </style>
+</head>
+
+<body class="antialiased text-gray-800">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="bg-white text-black sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-12 md:h-16 lg:h-20 w-auto"
+                    loading="eager">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8 text-base font-medium">
+                <a href="index.html" class="nav-link text-black hover:text-[#fdc303] transition">Home</a>
+                <a href="about.html" class="nav-link text-black hover:text-[#fdc303] transition">About</a>
+                <a href="services.html" class="nav-link text-black hover:text-[#fdc303] transition">Services</a>
+                <a href="clients.html" class="nav-link text-black hover:text-[#fdc303] transition">Clients</a>
+                <a href="gallery.html" class="nav-link text-[#fdc303] font-semibold">Gallery</a>
+                <a href="contact.html" class="nav-link text-black hover:text-[#fdc303] transition">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="block md:hidden text-3xl focus:outline-none text-[#fdc303]">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu (fixed structure) -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-[#0a2342] border-t border-blue-800 px-4 py-3 space-y-2 text-base">
+            <a href="index.html" class="block py-2 text-white hover:text-[#fdc303] transition">Home</a>
+            <a href="about.html" class="block py-2 text-white hover:text-[#fdc303] transition">About</a>
+            <a href="services.html" class="block py-2 text-white hover:text-[#fdc303] transition">Services</a>
+            <a href="clients.html" class="block py-2 text-white hover:text-[#fdc303] transition">Clients</a>
+            <a href="gallery.html" class="block py-2 text-[#fdc303] font-semibold">Gallery</a>
+            <a href="contact.html" class="block py-2 text-white hover:text-[#fdc303] transition">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-[#0a2342] to-[#1a3a5f] text-white py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold" data-aos="fade-down">Our <span
+                        class="text-[#fdc303]">Industrial Gallery</span></h1>
+                <p class="text-xl text-gray-200 mt-4 max-w-3xl mx-auto" data-aos="fade-up">A glimpse into our advanced
+                    machinery, manufacturing units, installed equipment, and workshop operations.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gallery items as per original -->
+                    <div class="gallery-item" data-aos="zoom-in" data-category="machinery">
+                        <img src="images/g3.webp" alt="CNC Machining Center" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Precision CNC Machining</h3>
+                            <p class="text-sm">High-speed 5-axis machining center</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50" data-category="machinery">
+                        <img src="images/laser_cutting.webp" alt="Laser Cutting Machine" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Laser Cutting</h3>
+                            <p class="text-sm">Fiber laser with 20mm capacity</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-category="manufacturing">
+                        <img src="images/g2.webp" alt="Factory Floor" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Manufacturing Unit</h3>
+                            <p class="text-sm">Spacious workshop with assembly lines</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150" data-category="installed">
+                        <img src="images/eot.webp" alt="EOT Crane Installation" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">EOT Crane</h3>
+                            <p class="text-sm">20-ton electric overhead crane installed</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-category="installed">
+                        <img src="images/p8.webp" alt="Hot Dip Galvanizing" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Hot Dip Galvanizing</h3>
+                            <p class="text-sm">Corrosion protection line</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250" data-category="workshop">
+                        <img src="images/p2.webp" alt="Welding Workshop" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Fabrication Workshop</h3>
+                            <p class="text-sm">Skilled welders at work</p>
+                        </div>
+                    </div>
+
+                    <!-- Industrial Storage Bins -->
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-category="products">
+                        <img src="images/box.webp" alt="Industrial Storage Bins" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Industrial Storage Bins</h3>
+                            <p class="text-sm">Heavy-duty stackable metal storage solutions</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Sheet Metal Components -->
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="350" data-category="components">
+                        <img src="images/g5.webp" alt="Sheet Metal Components" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Sheet Metal Parts</h3>
+                            <p class="text-sm">Precision fabricated brackets & enclosures</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Fasteners Collection -->
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400" data-category="hardware">
+                        <img src="images/g4.webp" alt="Fasteners Collection" class="w-full h-64 object-cover">
+                        <div class="overlay">
+                            <h3 class="font-bold">Industrial Fasteners</h3>
+                            <p class="text-sm">Bolts, nuts, washers & custom fittings</p>
+                        </div>
+                    </div>
+
+
+                   
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-16 bg-[#0a2342]">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">See Our Work in Action</h2>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Interested in a visit to our facility? Contact us to
+                    schedule a tour.</p>
+                <div class="mt-8">
+                    <a href="contact.html" class="btn-gold inline-block text-lg px-8 py-3">Request a Site Visit
+                        →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Fixed icon colors) -->
+    <footer class="bg-white text-black pt-12 pb-6 border-t border-yellow-500/20">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo"
+                            class="h-10 w-auto">
+                    </div>
+                    <p class="mt-4 text-sm text-gray-600">
+                        Precision engineering & industrial trading since 2015.
+                        Complete solutions delivered.
+                    </p>
+                    <div class="flex mt-4 space-x-4 text-2xl">
+                        <!-- Social icons with gold color and hover effect -->
+                        <a href="#" ><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" ><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" ><i
+                                class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-[#fdc303]">Quick Links</h4>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-[#fdc303] transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-[#fdc303] transition-colors">About</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Services</a></li>
+                        <li><a href="clients.html" class="hover:text-[#fdc303] transition-colors">Clients</a></li>
+                        <li><a href="gallery.html" class="hover:text-[#fdc303] transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-[#fdc303] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-[#fdc303]">Services</h4>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Sheet Metal Laser
+                                Cutting & Bending</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Forged Parts (Hot &
+                                Cold)</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Precision CNC
+                                Machined Parts</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">HDG Job Work</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Industrial Hardware
+                                Supply</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Industrial General
+                                Fabrication</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Industrial
+                                Fabrication Contractor</a></li>
+                        <li><a href="services.html" class="hover:text-[#fdc303] transition-colors">Material Handling
+                                Cranes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-[#fdc303]">Contact</h4>
+                    <p class="mt-3 text-sm flex items-start">
+                        <i class="fas fa-map-marker-alt mr-2 text-[#fdc303] mt-1"></i>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Ground+Floor+No+120%2F1+3rd+Cross+Mango+Acres+Layout+Bingipura+Village+Near+Christ+Academy+School+Bengaluru+562106"
+                            target="_blank" class="hover:underline hover:text-[#fdc303] transition-colors">
+                            Ground Floor, No. 120/1, 3rd Cross,<br>
+                            Mango Acres Layout,<br>
+                            Bingipura Village,<br>
+                            Near Christ Academy School,<br>
+                            Bengaluru - 562106
+                        </a>
+                    </p>
+                    <p class="text-sm mt-2">
+                        <i class="fas fa-phone mr-2 text-[#fdc303]"></i>
+                        <a href="tel:+919663353076" class="hover:underline hover:text-[#fdc303] transition-colors">+91
+                            96633 53076</a>
+                    </p>
+                    <p class="text-sm mt-2">
+                        <i class="fas fa-envelope mr-2 text-[#fdc303]"></i>
+                        <a href="mailto:mssoindustries@gmail.com"
+                            class="hover:underline hover:text-[#fdc303] transition-colors">
+                            mssoindustries@gmail.com
+                        </a>
+                    </p>
+                    <p class="text-sm mt-2">
+                        <i class="fas fa-id-card mr-2 text-[#fdc303]"></i>
+                        GST:29ARDPM5808J1ZG
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-4 text-center text-sm text-black-500">
+                © 2025 MSSO Industries. All rights reserved | Designed and Developed By
+                <a href="https://www.webvistara.co.in/" target="_blank" class="text-[#fdc303] hover:underline">
+                    Web Vistara
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Structure (added missing) -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        // Preloader
+        window.addEventListener('load', function () {
+            document.getElementById('preloader').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 500);
+        });
+
+        // Mobile menu toggle (fixed)
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close when clicking a link inside mobile menu
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            // Optional: close when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        if (lightbox) {
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    if (img) {
+                        lightboxImg.src = img.src;
+                        lightbox.classList.add('active');
+                    }
+                });
+            });
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.classList.remove('active');
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

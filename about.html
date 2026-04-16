@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+    <title>About MSSO Industries | Precision Engineering & Industrial Solutions</title>
+    <!-- SEO meta -->
+    <meta name="description"
+        content="Learn about MSSO Industries – 19+ years of engineering excellence, founder profile, vision, mission, and advanced manufacturing capabilities in Bangalore.">
+    <!-- Tailwind + Fonts + AOS + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a2342;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 8px solid #1e3a5f;
+            border-top: 8px solid #fdc303;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .preloader p {
+            margin-top: 25px;
+            color: #fdc303;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fdc303;
+        }
+
+        .active-nav {
+            color: #fdc303;
+            font-weight: 600;
+        }
+
+        .bg-industrial-blue {
+            background-color: #0a2342;
+        }
+
+        .text-gold {
+            color: #fdc303;
+        }
+
+        .btn-gold {
+            background: #fdc303;
+            color: #0a2342;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: 0.2s;
+        }
+
+        .btn-gold:hover {
+            background: #e0ae02;
+            transform: scale(1.02);
+        }
+
+        .capability-card {
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .capability-card:hover {
+            border-bottom-color: #fdc303;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a,
+        .footer-link {
+            transition: color 0.2s;
+        }
+
+        footer a:hover,
+        .footer-link:hover {
+            color: #fdc303;
+        }
+
+        /* Prevent horizontal scroll */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        * {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body class="antialiased text-gray-800">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- NAVBAR (sticky, mobile hamburger) -->
+<nav class="bg-[#00000] text-red sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+        <!-- Logo (text + icon) -->
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-12 md:h-16 lg:h-20 w-auto"
+                loading="eager">
+        </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8 text-base font-medium">
+                <a href="index.html" class="nav-link text-black hover:text-[#fdc303] transition">Home</a>
+                <a href="about.html" class="nav-link text-[#fdc303] font-semibold">About</a>
+                <a href="services.html" class="nav-link text-black hover:text-[#fdc303] transition">Services</a>
+                <a href="clients.html" class="nav-link text-black hover:text-[#fdc303] transition">Clients</a>
+                <a href="gallery.html" class="nav-link text-black hover:text-[#fdc303] transition">Gallery</a>
+                <a href="contact.html" class="nav-link text-black hover:text-[#fdc303] transition">Contact</a>
+            </div>
+
+            <!-- Mobile hamburger (gold) -->
+            <button id="menuBtn" class="block md:hidden text-3xl focus:outline-none text-[#fdc303]">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-[#0f2a4a] border-t border-blue-800 px-4 py-3 space-y-2 text-base">
+            <a href="index.html" class="block py-1 text-white hover:text-[#fdc303]">Home</a>
+            <a href="about.html" class="block py-1 text-[#fdc303] font-semibold">About</a>
+            <a href="services.html" class="block py-1 text-white hover:text-[#fdc303]">Services</a>
+            <a href="clients.html" class="block py-1 text-white hover:text-[#fdc303]">Clients</a>
+            <a href="gallery.html" class="block py-1 text-white hover:text-[#fdc303]">Gallery</a>
+            <a href="contact.html" class="block py-1 text-white hover:text-[#fdc303]">Contact</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- Company Introduction -->
+        <section class="bg-gradient-to-r from-[#0a2342] to-[#1a3a5f] text-white py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold" data-aos="fade-down">About <span class="text-[#fdc303]">MSSO Industries</span></h1>
+                <p class="text-xl text-gray-200 mt-4 max-w-3xl mx-auto" data-aos="fade-up">Powering Industries with Smart Engineering Solutions
+                Efficient, Reliable, and Scalable Manufacturing Support.</p>
+            </div>
+        </section>
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+               
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <p class="text-lg text-gray-700 leading-relaxed">MSSO Industries is a premier engineering &
+                            industrial goods trading company based in Electronic City, Bangalore. We deliver complete
+                            solutions for sheet metal component and assembly needs — from prototype development to high-volume
+                            production, industrial machining, heat treatment, surface finishing, and door-to-door
+                            logistics. Our commitment to precision, cost efficiency, and on-time delivery makes us a
+                            trusted partner across energy, automotive, construction, and infrastructure sectors.</p>
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <div class="flex items-center"><i
+                                    class="fas fa-check-circle text-[#fdc303] text-xl mr-2"></i> <span>ISO 9001:2015
+                                    Certified</span></div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-check-circle text-[#fdc303] text-xl mr-2"></i> <span>20+ Years
+                                    Experience</span></div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-check-circle text-[#fdc303] text-xl mr-2"></i> <span>Pan India
+                                    Delivery</span></div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-check-circle text-[#fdc303] text-xl mr-2"></i> <span>In-house Testing
+                                    & QA</span></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <img src="images/ind_workshop.avif"
+                            alt="Industrial workshop" class="rounded-xl shadow-2xl w-full object-cover max-h-96">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Profile -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0a2342]">Meet Our <span
+                            class="text-[#fdc303]">Founder</span></h2>
+                </div>
+                <div class="flex flex-col md:flex-row gap-10 items-center bg-white p-8 rounded-xl shadow-lg"
+                    data-aos="zoom-in">
+                    <div class="md:w-1/3 flex justify-center">
+                        <div
+                            class="w-48 h-48 rounded-full bg-[#0a2342] flex items-center justify-center text-6xl text-[#fdc303] shadow-xl border-4 border-[#fdc303]">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h3 class="text-2xl md:text-3xl font-bold text-[#0a2342]">Manjunatha Reddy</h3>
+                        <p class="text-[#fdc303] font-semibold text-lg">Proprietor & Chief Engineer</p>
+                        <p class="mt-4 text-gray-700">With over <strong>20+ years of experience</strong> in manufacturing
+                            engineering across automobile, construction, and agricultural industries, Manjunatha Reddy
+                            has held middle management roles in manufacturing engineering and business development. His
+                            hands-on expertise in production planning, quality control, and client relationship
+                            management drives MSSO Industries' commitment to excellence. Under his leadership, the
+                            company has grown into a one‑stop solution for industrial components and heavy engineering
+                            services.</p>
+                        <div class="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full"><i
+                                    class="fas fa-industry mr-1"></i> 20+ Years</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full"><i
+                                    class="fas fa-chart-line mr-1"></i> Business Dev</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full"><i
+                                    class="fas fa-microchip mr-1"></i> Mfg Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-[#0a2342] p-8 rounded-xl shadow-xl text-white" data-aos="flip-left">
+                        <i class="fas fa-eye text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-3">Our Vision</h3>
+                        <p class="text-gray-200 leading-relaxed">To become the most trusted partner in precision
+                            engineering and industrial solutions, delivering world-class quality, innovation, and
+                            sustainability that empowers industries across India and beyond.</p>
+                    </div>
+                    <div class="bg-[#fdc303] p-8 rounded-xl shadow-xl text-[#0a2342]" data-aos="flip-right">
+                        <i class="fas fa-bullseye text-5xl text-[#0a2342] mb-4"></i>
+                        <h3 class="text-3xl font-bold mb-3">Our Mission</h3>
+                        <p class="text-gray-800 leading-relaxed">To deliver zero-defect components and turnkey
+                            engineering services with unmatched reliability, leveraging advanced manufacturing and a
+                            customer-first approach — ensuring cost efficiency and timely delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Expertise & Industry Experience -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0a2342]">Industry <span
+                            class="text-[#fdc303]">Expertise</span></h2>
+                    <p class="text-gray-600 mt-2">Decades of experience across high-demand sectors</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="0">
+                        <i class="fas fa-car-side text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold">Automobile</h3>
+                        <p class="mt-2 text-gray-600">Precision components, engine parts, chassis brackets, and assembly
+                            line support.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-hard-hat text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold">Construction</h3>
+                        <p class="mt-2 text-gray-600">Structural steel, pre-engineered buildings, foundation plates, and
+                            fabricated structures.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-tractor text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold">Agriculture</h3>
+                        <p class="mt-2 text-gray-600">Heavy-duty machinery parts, harvesting equipment components, and
+                            wear-resistant parts.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-industry text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold">Infrastructure</h3>
+                        <p class="mt-2 text-gray-600">EOT cranes, material handling systems, galvanized structures, and
+                            industrial sheds.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-industry text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold">General Engineering</h3>
+                        <p class="mt-2 text-gray-600">Custom fabrication, CNC machining, prototyping, and heat treatment
+                            services.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow text-center" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-charging-station text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold">Renewable Energy</h3>
+                        <p class="mt-2 text-gray-600">Mounting structures, towers, and special material components for
+                            solar & wind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manufacturing Capabilities (Cards with icons) -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0a2342]">Manufacturing <span
+                            class="text-[#fdc303]">Capabilities</span></h2>
+                    <p class="text-gray-600 mt-2">State-of-the-art machinery and processes</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in">
+                        <i class="fas fa-microchip text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">CNC Machining</h3>
+                        <p class="text-sm text-gray-600">3/4/5 axis turning & milling</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="50">
+                <i class="fas fa-crosshairs text-3xl text-gold"></i>
+                        <h3 class="font-bold text-lg">Laser Cutting</h3>
+                        <p class="text-sm text-gray-600">Precision sheet metal up to 20mm</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <i class="fas fa-gavel text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">Forging (Hot & Cold)</h3>
+                        <p class="text-sm text-gray-600">High-strength forged components</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="150">
+                        <i class="fas fa-fill-drip text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">Hot Dip Galvanizing</h3>
+                        <p class="text-sm text-gray-600">Corrosion protection (HDG)</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <i class="fas fa-fire text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">Heat Treatment</h3>
+                        <p class="text-sm text-gray-600">Annealing, quenching, tempering</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="250">
+                    <i class="fas fa-tools text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">Fabrication</h3>
+                        <p class="text-sm text-gray-600">Heavy & light structural welding</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <i class="fas fa-chart-line text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">Quality Testing</h3>
+                        <p class="text-sm text-gray-600">NDT, dimensional, mechanical</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl text-center capability-card" data-aos="zoom-in"
+                        data-aos-delay="350">
+                        <i class="fas fa-truck text-4xl text-[#fdc303] mb-3"></i>
+                        <h3 class="font-bold text-lg">Logistics</h3>
+                        <p class="text-sm text-gray-600">Doorstep delivery & packaging</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-16 bg-[#0a2342]">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to work with us?</h2>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Let's discuss your next project — from prototyping to
+                    mass production, we deliver excellence.</p>
+                <div class="mt-8">
+                    <a href="contact.html" class="btn-gold inline-block text-lg px-8 py-3">Request a Quote →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (same as main page) -->
+<footer class="bg-white text-black pt-12 pb-6 border-t border-yellow-500/20">
+    <div class="container mx-auto px-4 md:px-8">
+
+        <!-- Grid Section -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <!-- Logo + About -->
+            <div>
+                <div class="flex items-center space-x-2">
+                    <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-10 w-auto">
+                </div>
+                <p class="mt-4 text-sm text-gray-600">
+                    Precision engineering & industrial trading since 2015.
+                    Complete solutions delivered.
+                </p>
+                <div class="flex mt-4 space-x-4 text-2xl">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Quick Links</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-red-600">Home</a></li>
+                    <li><a href="about.html" class="hover:text-red-600">About</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Services</a></li>
+                    <li><a href="clients.html" class="hover:text-red-600">Clients</a></li>
+                    <li><a href="gallery.html" class="hover:text-red-600">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Services</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="services.html" class="hover:text-red-600">Sheet Metal Laser Cutting & Bending</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Forged Parts (Hot & Cold)</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Precision CNC Machined Parts</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">HDG Job Work</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial Hardware Supply</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial General Fabrication</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial Fabrication Contractor</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Material Handling Cranes</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Contact</h4>
+
+                <p class="mt-3 text-sm flex items-start">
+                    <i class="fas fa-map-marker-alt mr-2 text-gold mt-1"></i>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ground+Floor+No+120%2F1+3rd+Cross+Mango+Acres+Layout+Bingipura+Village+Near+Christ+Academy+School+Bengaluru+562106"
+                        target="_blank" class="hover:underline">
+                        Ground Floor, No. 120/1, 3rd Cross,<br>
+                        Mango Acres Layout,<br>
+                        Bingipura Village,<br>
+                        Near Christ Academy School,<br>
+                        Bengaluru - 562106
+                    </a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-phone mr-2 text-gold"></i>
+                    <a href="tel:+919663353076" class="hover:underline">+91 96633 53076</a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-envelope mr-2 text-gold"></i>
+                    <a href="mailto:mssoindustries@gmail.com" class="hover:underline">
+                        mssoindustries@gmail.com
+                    </a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-id-card mr-2 text-gold"></i>
+                    GST:29ARDPM5808J1ZG
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-blue-800 mt-8 pt-4 text-center text-sm text-black-500">
+            © 2025 MSSO Industries. All rights reserved | Designed and Developed By
+            <a href="https://www.webvistara.co.in/" target="_blank" class="text-gold hover:underline">
+                Web Vistara
+            </a>
+        </div>
+
+    </div>
+</footer>
+    <!-- Scripts: AOS, preloader, mobile menu -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        // preloader
+        window.addEventListener('load', function () {
+            document.getElementById('preloader').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 500);
+        });
+        // mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // close mobile menu after link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>

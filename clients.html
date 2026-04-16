@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+    <title>Our Clients | MSSO Industries – Trusted by Industry Leaders</title>
+    <meta name="description"
+        content="MSSO Industries has served leading companies across automotive, construction, infrastructure, and engineering sectors. See our client list and success stories.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a2342;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 8px solid #1e3a5f;
+            border-top: 8px solid #fdc303;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .preloader p {
+            margin-top: 25px;
+            color: #fdc303;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fdc303;
+        }
+
+        .active-nav {
+            color: #fdc303;
+            font-weight: 600;
+        }
+
+        .bg-industrial-blue {
+            background-color: #0a2342;
+        }
+
+        .text-gold {
+            color: #fdc303;
+        }
+
+        .btn-gold {
+            background: #fdc303;
+            color: #0a2342;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: #e0ae02;
+            transform: scale(1.02);
+        }
+
+        .client-logo-card {
+            transition: all 0.3s;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid #fdc303;
+        }
+
+        .industry-card {
+            transition: all 0.3s;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            height: 100%;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            background: #fef9e6;
+        }
+
+        footer a,
+        .footer-link {
+            transition: color 0.2s;
+        }
+
+        footer a:hover,
+        .footer-link:hover {
+            color: #fdc303;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        * {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body class="antialiased text-gray-800">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- NAVBAR (sticky, mobile hamburger) -->
+<nav class="bg-[#00000] text-red sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+        <!-- Logo (text + icon) -->
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-12 md:h-16 lg:h-20 w-auto"
+                loading="eager">
+        </a>
+            <div class="hidden md:flex space-x-6 lg:space-x-8 text-base font-medium">
+                <a href="index.html" class="nav-link text-black hover:text-[#fdc303] transition">Home</a>
+                <a href="about.html" class="nav-link text-black hover:text-[#fdc303] transition">About</a>
+                <a href="services.html" class="nav-link text-black hover:text-[#fdc303] transition">Services</a>
+                <a href="clients.html" class="nav-link text-[#fdc303] font-semibold">Clients</a>
+                <a href="gallery.html" class="nav-link text-black hover:text-[#fdc303] transition">Gallery</a>
+                <a href="contact.html" class="nav-link text-black hover:text-[#fdc303] transition">Contact</a>
+            </div>
+
+            <button id="menuBtn" class="block md:hidden text-3xl focus:outline-none text-[#fdc303]">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-[#0f2a4a] border-t border-blue-800 px-4 py-3 space-y-2 text-base">
+            <a href="index.html" class="block py-1 text-white hover:text-[#fdc303]">Home</a>
+            <a href="about.html" class="block py-1 text-white hover:text-[#fdc303]">About</a>
+            <a href="services.html" class="block py-1 text-white hover:text-[#fdc303]">Services</a>
+            <a href="clients.html" class="block py-1 text-[#fdc303] font-semibold">Clients</a>
+            <a href="gallery.html" class="block py-1 text-white hover:text-[#fdc303]">Gallery</a>
+            <a href="contact.html" class="block py-1 text-white hover:text-[#fdc303]">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-[#0a2342] to-[#1a3a5f] text-white py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold" data-aos="fade-down">Trusted by <span
+                        class="text-[#fdc303]">Industry Leaders</span></h1>
+                <p class="text-xl text-gray-200 mt-4 max-w-3xl mx-auto" data-aos="fade-up">Partnering with top companies
+                    across automotive, construction, infrastructure, and engineering sectors.</p>
+            </div>
+        </section>
+
+        <!-- Client Logos Section -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#0a2342]">Our Valued <span
+                    class="text-[#fdc303]">Clients</span></h2>
+            <div class="w-24 h-1 bg-[#fdc303] mx-auto mt-4"></div>
+            <p class="text-gray-600 mt-4">We are proud to have collaborated with these esteemed organizations
+            </p>
+        </div>
+        <!-- Grid: 1 column on mobile, 2 on small, 3 on md+ -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- TEFABO -->
+            <div class="client-logo-card flex flex-col items-center" data-aos="fade-up">
+                <img src="images/c1-removebg-preview.webp" alt="TEFABO logo" class="w-20 h-20 object-contain mb-3">
+                <p class="font-bold text-gray-800 text-center">TEFABO</p>
+                <p class="text-sm text-gray-500 text-center">Automotive Components</p>
+            </div>
+            <!-- MTAR -->
+            <div class="client-logo-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="50">
+                <img src="images/c2-removebg-preview.webp" alt="MTAR logo" class="w-20 h-20 object-contain mb-3">
+                <p class="font-bold text-gray-800 text-center">MTAR</p>
+                <p class="text-sm text-gray-500 text-center">Precision Engineering</p>
+            </div>
+            <!-- LeonSmith -->
+            <div class="client-logo-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/c3-removebg-preview.webp" alt="LeonSmith logo" class="w-20 h-20 object-contain mb-3">
+                <p class="font-bold text-gray-800 text-center">LeonSmith</p>
+                <p class="text-sm text-gray-500 text-center">Agricultural Equipment</p>
+            </div>
+            <!-- Trexatek -->
+            <div class="client-logo-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="150">
+                <img src="images/trexatek-white-Photoroom.webp" alt="Trexatek logo"
+                    class="w-20 h-20 object-contain mb-3">
+                <p class="font-bold text-gray-800 text-center">Trexatek</p>
+                <p class="text-sm text-gray-500 text-center">Infrastructure Solutions</p>
+            </div>
+            <!-- SwitchGear -->
+            <div class="client-logo-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                <img src="images/c5-removebg-preview.webp" alt="SwitchGear logo" class="w-20 h-20 object-contain mb-3">
+                <p class="font-bold text-gray-800 text-center">SwitchGear</p>
+                <p class="text-sm text-gray-500 text-center">Energy & Automation</p>
+            </div>
+            <!-- Estee Auto Pressing -->
+            <div class="client-logo-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="250">
+                <img src="images/estee.webp" alt="Estee Auto Pressing logo" class="w-20 h-20 object-contain mb-3">
+                <p class="font-bold text-gray-800 text-center">Estee Auto Pressing</p>
+                <p class="text-sm text-gray-500 text-center">Automotive Pressing</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Industries Served (with icons and descriptions) -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0a2342]">Industries <span class="text-[#fdc303]">We
+                            Serve</span></h2>
+                    <p class="text-gray-600 mt-2">Delivering excellence across diverse industrial sectors</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="industry-card" data-aos="flip-left">
+                        <i class="fas fa-car-side text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#0a2342]">Automotive</h3>
+                        <p class="text-gray-600 mt-2">Precision components, engine parts, chassis assemblies, and
+                            prototype development for leading auto OEMs.</p>
+                    </div>
+                    <div class="industry-card" data-aos="flip-left" data-aos-delay="100">
+                        <i class="fas fa-hard-hat text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#0a2342]">Construction & Infrastructure</h3>
+                        <p class="text-gray-600 mt-2">Structural steel, pre-engineered buildings, HDG components, and
+                            heavy fabrication for construction projects.</p>
+                    </div>
+                    <div class="industry-card" data-aos="flip-left" data-aos-delay="200">
+                        <i class="fas fa-tractor text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#0a2342]">Agriculture</h3>
+                        <p class="text-gray-600 mt-2">Durable machinery parts, wear-resistant components, and custom
+                            forgings for agricultural equipment.</p>
+                    </div>
+                    <div class="industry-card" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fas fa-industry text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#0a2342]">Material Handling</h3>
+                        <p class="text-gray-600 mt-2">EOT cranes, gantries, hoists, and custom material handling
+                            solutions for warehouses and factories.</p>
+                    </div>
+                    <div class="industry-card" data-aos="flip-left" data-aos-delay="400">
+                        <i class="fas fa-charging-station text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#0a2342]">Renewable Energy</h3>
+                        <p class="text-gray-600 mt-2">Mounting structures, towers, and galvanized components for solar
+                            and wind energy projects.</p>
+                    </div>
+                    <div class="industry-card" data-aos="flip-left" data-aos-delay="500">
+                        <i class="fas fa-cogs text-5xl text-[#fdc303] mb-4"></i>
+                        <h3 class="text-xl font-bold text-[#0a2342]">General Engineering</h3>
+                        <p class="text-gray-600 mt-2">CNC machining, laser cutting, fabrication, and prototyping for
+                            diverse industrial applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Collaboration Highlights -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0a2342]">Project <span
+                            class="text-[#fdc303]">Highlights</span></h2>
+                    <p class="text-gray-600 mt-2">Key collaborations that showcase our expertise and commitment</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md" data-aos="zoom-in">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-building text-4xl text-[#fdc303]"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0a2342]">20,000 MT Structural Steel Supply</h3>
+                                <p class="text-gray-600 mt-2">Supplied and fabricated structural steel for a major
+                                    automotive plant expansion in Tamil Nadu. Completed 3 months ahead of schedule with
+                                    zero defects.</p>
+                                <span
+                                    class="inline-block mt-3 text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client:
+                                    Apex Auto Ltd.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-industry text-4xl text-[#fdc303]"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0a2342]">10 EOT Cranes Installation</h3>
+                                <p class="text-gray-600 mt-2">Designed, manufactured, and installed 10 units of 20-ton
+                                    EOT cranes for a logistics hub in Bangalore. Integrated with smart controls and
+                                    safety systems.</p>
+                                <span
+                                    class="inline-block mt-3 text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client:
+                                    LogiTrans Corp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-solar-panel text-4xl text-[#fdc303]"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0a2342]">50 MW Solar Tracker Structures</h3>
+                                <p class="text-gray-600 mt-2">Supplied hot-dip galvanized tracker structures and
+                                    foundation plates for a large-scale solar farm in Karnataka. Ensured corrosion
+                                    resistance and structural integrity.</p>
+                                <span
+                                    class="inline-block mt-3 text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client:
+                                    RenewPower Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-md" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-tractor text-4xl text-[#fdc303]"></i>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#0a2342]">Precision Forging for Harvesters</h3>
+                                <p class="text-gray-600 mt-2">Developed custom forged components for high-volume
+                                    agricultural harvesters. Achieved 30% cost reduction through optimized forging
+                                    process.</p>
+                                <span
+                                    class="inline-block mt-3 text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Client:
+                                    AgriMach India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action (Partner with us) -->
+        <section class="py-16 bg-[#0a2342]">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Become Our Next Success Story</h2>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Join our growing list of satisfied clients. Let’s
+                    discuss how we can add value to your next project.</p>
+                <div class="mt-8">
+                    <a href="index.html#contact" class="btn-gold inline-block text-lg px-8 py-3">Request a Quote →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (same as previous pages) -->
+<footer class="bg-white text-black pt-12 pb-6 border-t border-yellow-500/20">
+    <div class="container mx-auto px-4 md:px-8">
+
+        <!-- Grid Section -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <!-- Logo + About -->
+            <div>
+                <div class="flex items-center space-x-2">
+                    <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-10 w-auto">
+                </div>
+                <p class="mt-4 text-sm text-gray-600">
+                    Precision engineering & industrial trading since 2015.
+                    Complete solutions delivered.
+                </p>
+                <div class="flex mt-4 space-x-4 text-2xl">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Quick Links</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-red-600">Home</a></li>
+                    <li><a href="about.html" class="hover:text-red-600">About</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Services</a></li>
+                    <li><a href="clients.html" class="hover:text-red-600">Clients</a></li>
+                    <li><a href="gallery.html" class="hover:text-red-600">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Services</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="services.html" class="hover:text-red-600">Sheet Metal Laser Cutting & Bending</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Forged Parts (Hot & Cold)</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Precision CNC Machined Parts</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">HDG Job Work</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial Hardware Supply</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial General Fabrication</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial Fabrication Contractor</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Material Handling Cranes</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Contact</h4>
+
+                <p class="mt-3 text-sm flex items-start">
+                    <i class="fas fa-map-marker-alt mr-2 text-gold mt-1"></i>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ground+Floor+No+120%2F1+3rd+Cross+Mango+Acres+Layout+Bingipura+Village+Near+Christ+Academy+School+Bengaluru+562106"
+                        target="_blank" class="hover:underline">
+                        Ground Floor, No. 120/1, 3rd Cross,<br>
+                        Mango Acres Layout,<br>
+                        Bingipura Village,<br>
+                        Near Christ Academy School,<br>
+                        Bengaluru - 562106
+                    </a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-phone mr-2 text-gold"></i>
+                    <a href="tel:+919663353076" class="hover:underline">+91 96633 53076</a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-envelope mr-2 text-gold"></i>
+                    <a href="mailto:mssoindustries@gmail.com" class="hover:underline">
+                        mssoindustries@gmail.com
+                    </a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-id-card mr-2 text-gold"></i>
+                    GST:29ARDPM5808J1ZG
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-blue-800 mt-8 pt-4 text-center text-sm text-black-500">
+            © 2025 MSSO Industries. All rights reserved | Designed and Developed By
+            <a href="https://www.webvistara.co.in/" target="_blank" class="text-gold hover:underline">
+                Web Vistara
+            </a>
+        </div>
+
+    </div>
+</footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>

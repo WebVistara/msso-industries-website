@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+    <title>Our Services | MSSO Industries – Precision Engineering & Industrial Solutions</title>
+    <meta name="description"
+        content="Explore MSSO Industries’ comprehensive industrial services: laser cutting, CNC machining, forging, HDG, fabrication, cranes, and more. Quality assured.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a2342;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 8px solid #1e3a5f;
+            border-top: 8px solid #fdc303;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .preloader p {
+            margin-top: 25px;
+            color: #fdc303;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-link {
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fdc303;
+        }
+
+        .active-nav {
+            color: #fdc303;
+            font-weight: 600;
+        }
+
+        .bg-industrial-blue {
+            background-color: #0a2342;
+        }
+
+        .text-gold {
+            color: #fdc303;
+        }
+
+        .btn-gold {
+            background: #fdc303;
+            color: #0a2342;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: #e0ae02;
+            transform: scale(1.02);
+        }
+
+        .service-card {
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-bottom-color: #fdc303;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a,
+        .footer-link {
+            transition: color 0.2s;
+        }
+
+        footer a:hover,
+        .footer-link:hover {
+            color: #fdc303;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        * {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body class="antialiased text-gray-800">
+
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- NAVBAR (sticky, mobile hamburger) -->
+    <nav class="bg-[#00000] text-black sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+            <!-- Logo (text + icon) -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-12 md:h-16 lg:h-20 w-auto"
+                    loading="eager">
+            </a>
+
+            <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6 lg:space-x-8 text-base font-medium">
+            <a href="index.html" class="nav-link text-black hover:text-[#fdc303] transition">Home</a>
+            <a href="about.html"  class="nav-link text-black hover:text-[#fdc303] transition">About</a>
+            <a href="services.html" class="nav-link text-[#fdc303] font-semibold">Services</a>
+            <a href="clients.html" class="nav-link text-black hover:text-[#fdc303] transition">Clients</a>
+            <a href="gallery.html" class="nav-link text-black hover:text-[#fdc303] transition">Gallery</a>
+            <a href="contact.html" class="nav-link text-black hover:text-[#fdc303] transition">Contact</a>
+        </div>
+
+            <!-- Mobile hamburger (gold) -->
+            <button id="menuBtn" class="block md:hidden text-3xl focus:outline-none text-[#fdc303]">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#0f2a4a] border-t border-blue-800 px-4 py-3 space-y-2 text-base">
+            <a href="index.html" class="block py-1 text-white hover:text-[#fdc303]">Home</a>
+            <a href="about.html" class="block py-1 text-white hover:text-[#fdc303]">About</a>
+            <a href="services.html" class="block py-1 text-[#fdc303] font-semibold">Services</a>
+            <a href="clients.html" class="block py-1 text-white hover:text-[#fdc303]">Clients</a>
+            <a href="gallery.html" class="block py-1 text-white hover:text-[#fdc303]">Gallery</a>
+            <a href="contact.html" class="block py-1 text-white hover:text-[#fdc303]">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-[#0a2342] to-[#1a3a5f] text-white py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold" data-aos="fade-down">Our <span
+                        class="text-[#fdc303]">Industrial Services</span></h1>
+                <p class="text-xl text-gray-200 mt-4 max-w-3xl mx-auto" data-aos="fade-up">Complete engineering
+                    solutions from precision components to heavy fabrication — backed by 19+ years of expertise.</p>
+            </div>
+        </section>
+
+        <!-- Services Grid (8 services) -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- 1. Sheet Metal Laser Cutting & Bending -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/laser_cutting.webp"
+                                alt="Laser cutting" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-crosshairs text-3xl text-gold"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Sheet Metal Laser Cutting & Bending</h2>
+                            </div>
+                            <p class="text-gray-700">High-precision laser cutting and CNC bending for mild steel,
+                                stainless steel, aluminum, and alloys. Capable of handling complex geometries with tight
+                                tolerances.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Automotive panels & brackets</li>
+                                    <li>Enclosures & electrical cabinets</li>
+                                    <li>Architectural metalwork</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>±0.1mm accuracy, burr-free edges</li>
+                                    <li>Fast turnaround, minimal material waste</li>
+                                    <li>Custom bending up to 6m length</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Forged Parts Hot & Cold -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/g5.webp"
+                                alt="Forging" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-gavel text-3xl text-[#fdc303]"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Forged Parts (Hot & Cold)</h2>
+                            </div>
+                            <p class="text-gray-700">High-strength forged components produced through hot forging (for
+                                large parts) and cold forging (precision small parts). Enhanced grain structure and
+                                durability.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Crankshafts, connecting rods</li>
+                                    <li>Gears, hubs, flanges</li>
+                                    <li>Hand tools & agricultural implements</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Superior strength-to-weight ratio</li>
+                                    <li>Custom alloys & heat treatment</li>
+                                    <li>Reduced machining time</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Precision CNC Machined Parts -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/g3.webp"
+                                alt="CNC machining" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-microchip text-3xl text-[#fdc303]"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Precision CNC Machined Parts</h2>
+                            </div>
+                            <p class="text-gray-700">State-of-the-art CNC turning, milling, and multi-axis machining for
+                                complex geometries. Achieve tight tolerances (up to ±0.005mm) with diverse materials.
+                            </p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Aerospace & defense components</li>
+                                    <li>Hydraulic & pneumatic fittings</li>
+                                    <li>Medical device parts</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>High repeatability & surface finish</li>
+                                    <li>Quick prototyping to mass production</li>
+                                    <li>In-house quality inspection</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. HDG - Hot Dip Galvanizing -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/p8.webp"
+                                alt="HDG" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-fill-drip text-3xl text-[#fdc303]"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">HDG – Hot Dip Galvanizing</h2>
+                            </div>
+                            <p class="text-gray-700">Full-service hot dip galvanizing for corrosion protection. Our
+                                facility ensures uniform coating thickness, meeting IS/ISO standards for structural
+                                steel and fabrications.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Transmission towers, poles</li>
+                                    <li>Bridge components, handrails</li>
+                                    <li>Agricultural equipment, fencing</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>50+ years corrosion-free life</li>
+                                    <li>Environmentally compliant process</li>
+                                    <li>Pre- and post-treatment available</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Industrial Hardware Supply -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/p10.webp"
+                                alt="Hardware" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-tools text-3xl text-[#fdc303]"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Industrial Hardware Supply</h2>
+                            </div>
+                            <p class="text-gray-700">Comprehensive sourcing and supply of industrial hardware:
+                                fasteners, bearings, seals, tools, and MRO items from trusted brands. Tailored to your
+                                production line needs.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Assembly line consumables</li>
+                                    <li>Maintenance, repair, operations (MRO)</li>
+                                    <li>Bulk hardware for projects</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Just-in-time delivery</li>
+                                    <li>Quality assured, certified products</li>
+                                    <li>Competitive pricing for bulk orders</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Industrial General Fabrication -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="500">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/p2.webp"
+                                alt="Fabrication" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-tools text-3xl text-[#fdc303] transition duration-300 hover:scale-110"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Industrial General Fabrication</h2>
+                            </div>
+                            <p class="text-gray-700">Custom fabrication services including welding, assembly, and
+                                finishing for steel structures, platforms, tanks, and process equipment,ensuring high precision quality.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Staircases, walkways, safety rails</li>
+                                    <li>Storage tanks, hoppers</li>
+                                    <li>Machine frames & bases</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>On-site and in-house fabrication</li>
+                                    <li>Certified welding (MIG/TIG)</li>
+                                    <li>Custom design support</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Industrial Fabrication Contractor -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="600">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/p11.webp"
+                                alt="Fabrication contractor" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-hard-hat text-3xl text-[#fdc303]"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Industrial Fabrication Contractor</h2>
+                            </div>
+                            <p class="text-gray-700">End-to-end project execution as a fabrication contractor: from
+                                drawing to erection. We manage complex industrial projects with safety and quality
+                                compliance.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Factory expansions, new plants</li>
+                                    <li>Structural steel erection</li>
+                                    <li>Piping & ducting systems</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Turnkey contracting (design to handover)</li>
+                                    <li>Skilled workforce & safety protocols</li>
+                                    <li>Timely project management</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Material Handling Cranes -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card" data-aos="fade-up"
+                        data-aos-delay="700">
+                        <div class="h-48 overflow-hidden">
+                            <img src="images/p1.webp"
+                                alt="Cranes" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i class="fas fa-industry text-3xl text-[#fdc303]"></i>
+                                <h2 class="text-2xl font-bold text-[#0a2342]">Material Handling Cranes</h2>
+                            </div>
+                            <p class="text-gray-700">Design, supply, installation, and maintenance of EOT cranes, gantry
+                                cranes, jib cranes, and hoists. Customized for safe, efficient, reliable heavy lifting.</p>
+                            <div class="mt-4">
+                                <h3 class="font-semibold text-[#0a2342]">Industrial Applications:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>Warehouses, workshops, foundries</li>
+                                    <li>Shipping yards, logistics hubs</li>
+                                    <li>Automotive assembly lines</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <h3 class="font-semibold text-[#0a2342]">Benefits & Features:</h3>
+                                <ul class="list-disc list-inside text-gray-600 text-sm mt-1">
+                                    <li>IS/OSHA compliant designs</li>
+                                    <li>Remote control & safety features</li>
+                                    <li>Annual maintenance contracts</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="contact.html"
+                                    class="btn-gold inline-block text-center w-full sm:w-auto">Inquiry / Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-16 bg-[#0a2342]">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Need a custom solution?</h2>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Our engineers are ready to discuss your project and
+                    provide a tailored quote.</p>
+                <div class="mt-8">
+                    <a href="contact.html" class="btn-gold inline-block text-lg px-8 py-3">Contact us today →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (identical to main site) -->
+<footer class="bg-white text-black pt-12 pb-6 border-t border-yellow-500/20">
+    <div class="container mx-auto px-4 md:px-8">
+
+        <!-- Grid Section -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <!-- Logo + About -->
+            <div>
+                <div class="flex items-center space-x-2">
+                    <img src="images/msso_logo-removebg-preview.webp" alt="MSSO Industries Logo" class="h-10 w-auto">
+                </div>
+                <p class="mt-4 text-sm text-gray-600">
+                    Precision engineering & industrial trading since 2015.
+                    Complete solutions delivered.
+                </p>
+                <div class="flex mt-4 space-x-4 text-2xl">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Quick Links</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-red-600">Home</a></li>
+                    <li><a href="about.html" class="hover:text-red-600">About</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Services</a></li>
+                    <li><a href="clients.html" class="hover:text-red-600">Clients</a></li>
+                    <li><a href="gallery.html" class="hover:text-red-600">Gallery</a></li>
+                    <li><a href="contact.html" class="hover:text-red-600">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Services</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="services.html" class="hover:text-red-600">Sheet Metal Laser Cutting & Bending</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Forged Parts (Hot & Cold)</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Precision CNC Machined Parts</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">HDG Job Work</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial Hardware Supply</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial General Fabrication</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Industrial Fabrication Contractor</a></li>
+                    <li><a href="services.html" class="hover:text-red-600">Material Handling Cranes</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-lg font-semibold text-gold">Contact</h4>
+
+                <p class="mt-3 text-sm flex items-start">
+                    <i class="fas fa-map-marker-alt mr-2 text-gold mt-1"></i>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Ground+Floor+No+120%2F1+3rd+Cross+Mango+Acres+Layout+Bingipura+Village+Near+Christ+Academy+School+Bengaluru+562106"
+                        target="_blank" class="hover:underline">
+                        Ground Floor, No. 120/1, 3rd Cross,<br>
+                        Mango Acres Layout,<br>
+                        Bingipura Village,<br>
+                        Near Christ Academy School,<br>
+                        Bengaluru - 562106
+                    </a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-phone mr-2 text-gold"></i>
+                    <a href="tel:+919663353076" class="hover:underline">+91 96633 53076</a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-envelope mr-2 text-gold"></i>
+                    <a href="mailto:mssoindustries@gmail.com" class="hover:underline">
+                        mssoindustries@gmail.com
+                    </a>
+                </p>
+
+                <p class="text-sm mt-2">
+                    <i class="fas fa-id-card mr-2 text-gold"></i>
+                    GST:29ARDPM5808J1ZG
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-blue-800 mt-8 pt-4 text-center text-sm text-black-500">
+            © 2025 MSSO Industries. All rights reserved | Designed and Developed By
+            <a href="https://www.webvistara.co.in/" target="_blank" class="text-gold hover:underline">
+                Web Vistara
+            </a>
+        </div>
+
+    </div>
+</footer>
+
+
+    <!-- Scripts: AOS, preloader, mobile menu -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        // preloader
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        // mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // close mobile menu after link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
